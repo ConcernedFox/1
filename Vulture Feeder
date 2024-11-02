@@ -1,0 +1,33 @@
+import pgzrun
+from random import randint
+WIDTH = 800
+HEIGHT = 600
+
+score = 0
+game_over = False
+
+vulture = Actor("vulture")
+vulture.pos = 100,100
+
+meat = Actor("meat")
+meat.pos = 200,200
+
+def draw():
+    screen.blit("Game BG",(0,0))
+    vulture.draw()
+    meat.draw()
+    screen.draw.text("score = "+ str(score),fontsize = 30,color = "black")
+
+    if game_over:
+        screen.fill = "blue"
+        screen.draw.text("Time's up!Your final score is"+ str (score))
+
+def randomized():
+    meat.x = randint(70,(WIDTH-70))
+    meat.y = randint(70,(WIDTH-70))
+
+def TimeUp():
+    global game_over
+    game_over = True
+
+pgzrun.go()
